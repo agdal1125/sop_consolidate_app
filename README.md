@@ -9,7 +9,7 @@ authors:
 
 The `libs/` folder houses additional packages that can be installed onto your workstation.
  
-<s>The `utils/` folder houses materials in the public safety domain that aim to provide you with additional context<s>
+<s>The `utils/` folder houses materials in the public safety domain that aim to provide you with additional context</s>
  Removed due to data confidentiality
 
 ## Note on data governance

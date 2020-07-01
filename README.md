@@ -1,12 +1,11 @@
 # Capstone 2020
 
-Welcome to the project. Feel free to customize this repo.
-
 ## Navigating this repository
 
 The `libs/` folder houses additional packages that can be installed onto your workstation.
-
-The `utils/` folder houses materials in the public safety domain that aim to provide you with additional context.
+ 
+<s>The `utils/` folder houses materials in the public safety domain that aim to provide you with additional context<s>
+ Removed due to data confidentiality
 
 ## Note on data governance
 

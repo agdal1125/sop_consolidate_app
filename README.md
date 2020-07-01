@@ -1,5 +1,10 @@
 # Capstone 2020
 
+authors:
+- Jake Lee
+- Frank Lu
+- Jacky Ho
+
 ## Navigating this repository
 
 The `libs/` folder houses additional packages that can be installed onto your workstation.

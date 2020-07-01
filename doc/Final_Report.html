@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>E-Comm 911 Capstone Report | Natural Language Processing to Help Save Lives and Protect Property</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="e-comm-911-capstone-report--natural-language-processing-to-help-save-lives-and-protect-property">E-Comm 911 Capstone Report | Natural Language Processing to Help Save Lives and Protect Property</h1>
+<p>Frank Lu, Jaekeun Lee, Jacky Ho</p>
+<p>Advisor: Varada Kolhatkar</p>
+<p>Project partner: E-Comm 911</p>
+<h2 id="executive-summary">Executive Summary</h2>
+<hr>
+<p>Call takers at E-comm 911 have a very intense work environment.  While every second counts, they rely on the instructions in SOP documents to take proper actions.  However, SOP documents have been one of the bottlenecks in 911 call procedures due to the redundancy in the instructions and the inefficient design of the lookup system.  In this project, we adopted NLP (Natural Language Processing) techniques to identify similar SOP instructions for consolidation.  We also generate corresponding procedure flowcharts to provide a clear visual guide to users.  On top of the NLP models and procedure flowcharts, we also created a web app through which users can select a desired subset of SOP documents and view the flowcharts in real-time.</p>
+<h2 id="introduction">Introduction</h2>
+<hr>
+<p>E-Comm 911's operators handle tons of emergency calls every day for different kinds of events, such as dog bites and domestic violence, in various jurisdictions/agencies; for each event, they have to follow a set of standard operating procedures (SOP) to designate the appropriate actions. Each SOP document handles one event type for one agency, depicting its associated scenarios and their corresponding actions. One event type could have many SOP documents for different agencies.</p>
+<p>The main problems E-Comm 911 is facing regarding its SOP documents are redundancy and haphazardness. SOP documents from different agencies for the same event could be remarkably similar with trivial differences. For example, two agencies can handle firearm incidents the same way semantically but have separate SOP documents with slightly divergent wordings. Moreover, the operators can conceptualize the documents through their groupings and relationships. Due to these problems, there is ample room for efficiency improvement in call handling, and there is a high turnover rate in operators.</p>
+<p>This project aims to address these issues with various data science techniques. The main goal is to identify similarities and differences among documents for potential consolidation and better visualize documents for more condensed understanding.</p>
+<p><strong>Description of the Data</strong></p>
+<p>For our analysis, E-Comm 911 provides us with 2021 SOP documents from 18 police agencies. These documents concern over 280 events, such as assault, missing persons, and domestic violence. These documents are all Microsoft Word files. (Fig 1)</p>
+<h2 id="data-science-methods">Data Science Methods</h2>
+<hr>
+<p>The data science methods are divided into two portions: modelling and visualization.  The modelling portion goes through the texts and determines which documents are similar enough to be placed in the same cluster.  However, the resulted clusters can contain many documents and are hard to interpret, so we visualize them by converting them into map-like procedural flowcharts for easier understanding.</p>
+<p><strong>Modeling</strong></p>
+<p>We have looked into document clustering using LDA, HDP, and KMeans.  LDA and HDP are topic modelling algorithms.  The idea is that, when several documents are said to be under the same topic, the wordings of these documents should be similar to each other. This can be a valuable starting point for text consolidation. Kmeans, on the other hand, has long been used for clustering tasks.  We tuned hyper-parameters of these 3 models based on their objective measurements, and the 3 tuned models will be compared based on human interpretation .</p>
+<p><a href="https://radimrehurek.com/gensim/models/ldamodel.html">LDA</a> from Gensim was the first algorithm we tried.  In order to find the best LDA model, we tuned two of the hyper-parameters:</p>
+<ul>
+<li>alpha: document level distribution of topics</li>
+<li>num_topics: number of topics</li>
+</ul>
+<p>Here, <a href="https://radimrehurek.com/gensim/models/coherencemodel.html">coherence score</a> was used as the objective measurement of model performance. Coherence score has many variants, and we chose “c_v” and “npmi” because they tend to correlate more with human judgment by several research papers<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mtext> </mtext><mrow><mo stretchy="false">[</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo stretchy="false">]</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\ ^{[1,2]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span class="mspace"> </span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">[</span><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mtight">2</span><span class="mclose mtight">]</span></span></span></span></span></span></span></span></span></span></span></span>.  As depicted in Fig 2, both “c_v” and “npmi” agree that the desired range of num_topics for this model should fall between 80 and 90.</p>
+<p><a href="https://radimrehurek.com/gensim/models/hdpmodel.html">HDP</a> from Gensim is also a topic modeling algorithm and an extension of LDA.  HDP can infer the number of topics and doesn’t need the num_topics hyperparameter.   However, HDP has more hyperparameters to be considered:</p>
+<ul>
+<li>alpha: document level distribution of topics</li>
+<li>gamma: corpus level distribution of topics</li>
+<li>T: upper bound of number of topics</li>
+<li>K: upper bound of number of words inside a topic</li>
+</ul>
+<p>Because the number of topics is inferred by HDP, we tried tuning other hyperparameters, and they don’t seem to make a significant change in coherence scores.</p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">KMeans</a> is a conventional clustering algorithm, and we use the implementation from Scikit-Learn. For KMeans, we mainly focus on the n_clusters hyperparameter, which controls the number of clusters.  There are two metrics that we use to tune n_clusters objectively:</p>
+<ul>
+<li>inertia: the distance between cluster members and cluster centroid</li>
+<li>Silhouette score: the distance between different clusters</li>
+</ul>
+<p>As displayed in Fig 3 and Fig 4, the inertia and Silhouette scores both indicate that a range between 80 and 90 is desirable for n_clusters.</p>
+<p>After obtaining 3 tuned models, we use human interpretation to compare the results of clustering.  With the goal of finding similar texts for consolidation, KMeans generates more reasonable clusters and is selected as the final model.  The output of clustering is a data frame similar to Fig 6.  Please note a sample data frame is displayed here because the real SOP texts are confidential.</p>
+<p><strong>Visualization</strong></p>
+<p>Although the clustering models generate reasonable results, the resultant table flattens out the hierarchy of SOP instructions.  To highlight the hierarchy of 911 call procedures, we convert the result of clustering to graph-like flowcharts, which is shown in Fig 2.4.  We also apply <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html">TF-IDF</a> and <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html">cosine similarity</a> to merge similar nodes in the flowcharts, so they don’t look crowded.</p>
+<h2 id="data-product">Data Product</h2>
+<hr>
+<p>The final data product consist of two parts: pipeline and dashboard.</p>
+<p><strong>Pipeline</strong></p>
+<p>In order to make conversion of docx files automatic and the analysis reproducible, our team came up with a pipeline that identifies the highly hierarchical pattern of E-comm’s SOP documents. The pipeline conversion of SOP documents will be viable as long as they have a similar structure. The caveat here is that SOP documents need to be structurally aligned to produce a consistent result. The pipeline has three features in total. First, it converts SOP documents into a machine readable format. The processed documents are stored as comma separated version (csv) files so that they can be used later for other purposes. Then, the pipeline processes the csv files into TF-IDF vectors and performs K-Means Clustering. The results of clustering is also stored as csv files. Finally, SOP situations and event types that have been clustered together are merged as visualized flowcharts.</p>
+<p><strong>Dashboard</strong></p>
+<p>One of the difficulties of unsupervised learning is interpretability and evaluation of model. Since the data is not labeled, it is challenging to assess the quality of clusters, especially when the model outputs a large number of them. As our team took advantage of the nested hierarchical structure in the SOP documents, we decided to generate a graph-like flowchart to represent the procedure of 911 calls, which is shown in Fig 2.4. To present and combine all the results, we devised a dashboard which has two sections: clustering results with visualized flowchart and search bar to look up SOPs using keywords.</p>
+<p>In some clusters, more than one event type exists, suggesting the possibility of consolidation between the two event types. We hope our partners can discover the redundant elements within SOPs using this section. A search bar was appended at the bottom of the dashboard to facilitate SOP document search. Using the keyword, users can locate the filename and contents of SOP document that has the largest cosine similarity.</p>
+<h2 id="limitation-and-recommendation">Limitation and Recommendation</h2>
+<hr>
+<p>Our data product has several limitations.</p>
+<p>First of all, some of the clustering results lack interpretability. Most clusters make sense, but some clusters don't really make sense semantically. Because we have a large number of clusters, it is hard to evaluate them one by one. Finding the ones that lack interpretability should be manually done by browsing through each cluster numbers.</p>
+<p>Secondly, we haven’t been able to parse actions/ conditions and questions in the sop instruction part. Most documents adhere to a consistent and hierarchical structure in terms of sentence formats and their implications, but some stray away from it. Since the parsing and analysis heavily relied upon the hierarchy of contents, inconsistent structure was a huge problem that couldn't be resolved. This problem gets more complex when it involves questions, reference to other resources, because we couldn't ensure definite order or hierarchy in these instructions.</p>
+<p>Finally, some of the large complex SOP flowcharts lack visibility. The large nodes that contain multiple line of sentences, makes the graph size too big to be contained in one page. This problem is relevant to the previous limitation of being unable to parse the instructions on the SOP to granular levels</p>
+<p>In order to overcome this limitations, we propose the following approaches. Instead of making use of the document structure to parse texts, we can identify named entities in the text and find similar documents based on the named entities. The team developed a rule-based entity extraction feature within the pipeline, so the E-comm team can expand the work from there.</p>
+<div style="page-break-after: always;"></div>
+<h2 id="appendix">Appendix</h2>
+<hr>
+<p><img src="https://paper-attachments.dropbox.com/s_D0AFE1F94624CA99587712D07CE8C2EA6D6E0F4EE5F8294EA6D08397FA099DA8_1589410322739_image.png" alt="Fig 1 - Number of SOPs by agency"><br>
+<em>Fig 1 - Number of SOPs by agency</em></p>
+<p><img src="https://saqnda.by.files.1drv.com/y4mLLI7hp1ePAjoNq70-oMxCJU_TTjXt8HsEksJoBBzsB1SPqzJkVQY_fI_GThxUXSOamN17KH-b3kuBqZ3l9vIEAm0vvJ5XufEyvyBc2NRW8T-OAjoykoGxh1X1s8Vp4942UiNpgutYfuLcTQcvwMHsPcYdcWBac9g_ppt2NvTV17iowh-XmqAB1S7RJvU4AHeB3HO5u3Veswpdm-Nb2eXlg?width=1114&amp;height=681&amp;cropmode=none" alt="Fig 2 - coherence scores vs num_topic of LDA model"><br>
+<em>Fig 2 - Coherence scores vs num_topic of LDA model</em></p>
+<p><img src="https://paper-attachments.dropbox.com/s_D33094D9885E51D2CB65A396D672FDF75D94A6D5F19CA25834C852C48EEE755A_1592883593678_type_inertias.png" alt="Fig 3 - Inertia Score vs n_clusters of K-Means"><br>
+<em>Fig 3 - Inertia Score vs n_clusters of K-Means</em></p>
+<p><img src="https://paper-attachments.dropbox.com/s_D33094D9885E51D2CB65A396D672FDF75D94A6D5F19CA25834C852C48EEE755A_1592883607715_type_silhouettes.png" alt="Fig 4 - Silhouette Score vs n_clusters of K-Means"><br>
+<em>Fig 4 - Silhouette Score vs n_clusters of K-Means</em></p>
+<p><img src="https://paper-attachments.dropbox.com/s_D33094D9885E51D2CB65A396D672FDF75D94A6D5F19CA25834C852C48EEE755A_1592931424385_sample_clustering.png" alt="Fig 5 - Sample output of clustering"><br>
+<em>Fig 5 - Sample output of clustering</em></p>
+<p><img src="https://paper-attachments.dropbox.com/s_D33094D9885E51D2CB65A396D672FDF75D94A6D5F19CA25834C852C48EEE755A_1592932626605_flowchart.png" alt="Fig 6 - sample procedure flowchart"><br>
+<em>Fig 6 - Sample procedure flowchart</em></p>
+<h2 id="reference">Reference</h2>
+<hr>
+<ol>
+<li>
+<p>Linzi Xing, Michael J. Paulz, and Giuseppe Carenini. (2019).  Evaluating Topic Quality with Posterior Variability.  <em>Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing
+and the 9th International Joint Conference on Natural Language Processing</em>, pages 3471-3477.  <a href="https://www.aclweb.org/anthology/D19-1349.pdf">https://www.aclweb.org/anthology/D19-1349.pdf</a></p>
+</li>
+<li>
+<p>Michael Roder, Andreas Both, and Alexander Hinneburg.  (2015). Exploring the space of topic coherence measures. <em>Eighth ACM International Conference on Web Search and Data Mining</em>, pages 39–408.  <a href="https://dl.acm.org/doi/pdf/10.1145/2684822.2685324">https://dl.acm.org/doi/pdf/10.1145/2684822.2685324</a></p>
+</li>
+</ol>
+
+    </body>
+    </html>

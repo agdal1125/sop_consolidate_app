@@ -1,0 +1,96 @@
+<div class="entities" style="line-height: 2.5; direction: ltr">This is the SOP for the 
+<mark class="entity" style="background: #FFCB41; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    RECVEH – Recovered stolen vehicle
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">EVENT</span>
+</mark>
+ event type.  If the caller is not the registered owner do not supply any vehicle information including that it is on file as stolen.  
+<mark class="entity" style="background: #7DC9FF; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    call taker
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">ROLE</span>
+</mark>
+ 
+<mark class="entity" style="background: #C7FF7E; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Registered owner advising vehicle reported stolen in error and police report taken
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">SITUATION</span>
+</mark>
+ Refer to 
+<mark class="entity" style="background: #D89CFF; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    AB
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">JURI</span>
+</mark>
+ – 
+<mark class="entity" style="background: #FFCB41; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    THEFTV – Theft of vehicle
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">EVENT</span>
+</mark>
+ event SOP 
+<mark class="entity" style="background: #C7FF7E; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Registered owner or citizen recovers a stolen vehicle
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">SITUATION</span>
+</mark>
+ Query the plate on 
+<mark class="entity" style="background: #BBB9E6; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    CPIC
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">ORG</span>
+</mark>
+ and add ‘location of the vehicle, and any information obtained (i.e. ‘400 MAIN – RO LOCATED VEH), to ensure that there is a No-Hit on file.   If the stolen vehicle is from Abbotsford Re-queue the original call and update the vehicle location If the vehicle is from another Agency Create a call  Enter the original stolen auto file number in the remarks field. Cross reference (VRC) the two calls. Attach the 
+<mark class="entity" style="background: #BBB9E6; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    CPIC
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">ORG</span>
+</mark>
+ response to the event. 
+<mark class="entity" style="background: #C7FF7E; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Theft of property from a vehicle after the recovery of the vehicle
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">SITUATION</span>
+</mark>
+ If the stolen vehicle is from Abbotsford. Advise the caller to contact the member assigned to their original stolen vehicle file via voicemail.  The member will add all follow up information to the GO.  If the vehicle is from another Agency. Downstream caller to Agency that created original file. 
+<mark class="entity" style="background: #7DC9FF; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    dispatcher
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">ROLE</span>
+</mark>
+ 
+<mark class="entity" style="background: #C7FF7E; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Outside Agency recovers a stolen vehicle
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">SITUATION</span>
+</mark>
+ Read 
+<mark class="entity" style="background: #BBB9E6; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    CPIC
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">ORG</span>
+</mark>
+ to determine if all items (vehicle, both plates and val tag) were recovered. Notify Road NCO and request authorization to remove 
+<mark class="entity" style="background: #BBB9E6; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    CPIC
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">ORG</span>
+</mark>
+ entry If the Road NCO is unavailable Notify the Staff Sergeant (604-864-4862) to get authorization for the removal If NCO give authorization for removal.  Send a CAD message using the forward command to ER1 requesting action on cpic entry and advising;  remove entry if all items were recovered or modify entry if 1 or more items were not recovered Include in your message vehicle description and plate # Re-queue the original file, append the 
+<mark class="entity" style="background: #BBB9E6; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    CPIC
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">ORG</span>
+</mark>
+ Narrative to the file and assign to the next available OSO member 
+<mark class="entity" style="background: #C7FF7E; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Registered owner or citizen recovers a stolen vehicle
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">SITUATION</span>
+</mark>
+  If the stolen vehicle is from Abbotsford Assign a member. If member advises one or both of the license plates are missing from the vehicle  Send a CAD message using the forward command to ER1 and request the stolen vehicle be removed from 
+<mark class="entity" style="background: #BBB9E6; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    CPIC
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">ORG</span>
+</mark>
+ and re-add the plates and val tag. Include in your message file #, vehicle description and plate # If the stolen vehicle is from another Agency Assign a member Confirm the recovery with the member once on scene Enter in the call if the registered owner has been notified by a member or at the request of a member by dispatch. Request the stolen vehicle be removed from 
+<mark class="entity" style="background: #BBB9E6; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    CPIC
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">ORG</span>
+</mark>
+ Send a CAD message using the forward command to ER1 requesting the stolen vehicle be removed from 
+<mark class="entity" style="background: #BBB9E6; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    CPIC
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">ORG</span>
+</mark>
+ Include in your message file #, vehicle description and plate # 
+<mark class="entity" style="background: #C7FF7E; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Recovery of vehicle by own Agency – On View
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">SITUATION</span>
+</mark>
+ Send a CAD MAIL message to ER1 with details of recovery and instructions for removal</div>
